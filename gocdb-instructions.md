@@ -115,7 +115,92 @@ Since the repository does not exist yet, you need to create it first:
 
 ## Project Structure
 
-- AI agent should help me with this.
+The goCDB project follows a monorepo structure with clear separation of concerns:
+
+```
+goCDB/
+├── backend/                    # Node.js + TypeScript API Server
+│   ├── src/
+│   │   ├── controllers/       # HTTP request handlers
+│   │   ├── services/          # Business logic
+│   │   ├── repositories/      # Database operations
+│   │   ├── middleware/        # Auth, validation, error handling
+│   │   ├── models/            # Data models and types
+│   │   ├── routes/            # API route definitions
+│   │   ├── utils/             # Helper functions
+│   │   └── websocket/         # Real-time communication
+│   ├── tests/                 # Backend tests
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── .env.example
+│
+├── admin/                      # Next.js Admin Panel
+│   ├── src/
+│   │   ├── components/        # Reusable UI components
+│   │   ├── pages/             # Next.js pages
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── utils/             # Helper functions
+│   │   ├── styles/            # Global styles (Tailwind)
+│   │   └── lib/               # API clients and utilities
+│   ├── public/                # Static assets
+│   ├── tests/                 # Admin panel tests
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── tailwind.config.js
+│   └── next.config.js
+│
+├── mobile/                     # React Native + Expo App
+│   ├── src/
+│   │   ├── components/        # Reusable mobile components
+│   │   ├── screens/           # App screens
+│   │   ├── navigation/        # Navigation configuration
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── utils/             # Helper functions
+│   │   ├── store/             # State management
+│   │   └── services/          # API services
+│   ├── assets/                # Images, fonts, etc.
+│   ├── tests/                 # Mobile app tests
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── app.json
+│   └── expo.json
+│
+├── shared/                     # Shared TypeScript Types & Utilities
+│   ├── src/
+│   │   ├── types/             # Shared TypeScript interfaces
+│   │   ├── utils/             # Shared utility functions
+│   │   └── constants/         # Shared constants
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── database/                   # Database Schema & Migrations
+│   ├── migrations/            # Database migration files
+│   ├── seeds/                 # Database seed data
+│   ├── schema.sql             # Database schema
+│   └── prisma/                # Prisma ORM configuration
+│       ├── schema.prisma
+│       └── migrations/
+│
+├── docker-compose.yml          # Development environment
+├── .github/                    # GitHub Actions CI/CD
+│   └── workflows/
+├── docs/                       # Additional documentation
+├── package.json                # Root package.json (workspace config)
+├── .gitignore                  # Git ignore rules
+├── README.md                   # Project overview
+├── ROADMAP.md                  # Development roadmap
+├── CLAUDE.md                   # Claude Code guidelines
+└── gocdb-instructions.md       # This file
+```
+
+### Key Design Decisions
+
+1. **Monorepo Architecture**: All components in one repository for easier development and shared code
+2. **TypeScript Everywhere**: Type safety across backend, admin, and mobile
+3. **Shared Package**: Common types and utilities prevent code duplication
+4. **Clear Separation**: Each component has its own package.json and configuration
+5. **Development Scripts**: Root package.json provides convenient scripts for all components
+6. **Docker Integration**: Complete development environment with one command
 
 ---
 
