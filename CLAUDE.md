@@ -23,6 +23,14 @@ For example:
 - When implementing testing → Update the relevant testing sections
 - And so on for every section marked with "AI agent should help me with this"
 
+### Progress Tracking
+**CRITICAL**: After every accomplishment or completion of tasks, you MUST:
+1. Update the ROADMAP.md file with what was accomplished
+2. Mark completed tasks with checkmarks and add completion details
+3. Add any deviations or improvements made during implementation
+4. Use the ROADMAP.md as your reference to understand where the project stopped in the last session
+5. This is how you'll track progress and know exactly where to continue from
+
 ## Common Development Commands
 
 ### Backend
